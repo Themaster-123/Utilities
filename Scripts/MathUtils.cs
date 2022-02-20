@@ -22,6 +22,17 @@ namespace Utilites
 			return r < 0 ? r + b : r;
 		}
 
+		public static float Wrap(float a, float min, float max)
+		{
+			float diff = max - min;
+
+			if (a > min)
+				return min + (a - min) % diff;
+			a = min + (min - a);
+			float temp = min + (a - min) % diff;
+			return max - temp;
+		}
+
 		public static Vector3 Abs(Vector3 vector)
 		{
 			return new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
